@@ -32,7 +32,8 @@ class _QuizApp extends State<QuizApp> {
       appBar: AppBar(
         title: const Text(
           "Quiz App",
-          style: TextStyle(fontSize: 20, fontStyle: FontStyle.normal),
+          style:
+              TextStyle(fontSize: 20, color: Colors.black87, letterSpacing: 3),
         ),
         centerTitle: true,
       ),
@@ -43,40 +44,66 @@ class _QuizApp extends State<QuizApp> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const Text("Quetion1/10"),
+              SizedBox(
+                // width: 200,
+                height: 10,
+              ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   const Text("Quetion1:What is Flutter?"),
+                  SizedBox(
+                    // width: 200,
+                    height: 10,
+                  ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       ElevatedButton(
                         onPressed: () {},
-                        child: const Text("Option1", textAlign: TextAlign.center,),
-                        
+                        child: const Text(
+                          "Option1",
+                          textAlign: TextAlign.center,
+                        ),
                       ),
-                       ElevatedButton(
+                      SizedBox(
+                        // width: 200,
+                        height: 10,
+                      ),
+                      ElevatedButton(
                         onPressed: () {},
                         child: const Text("Option2"),
                       ),
-                       ElevatedButton(
+                      SizedBox(
+                        // width: 200,
+                        height: 10,
+                      ),
+                      ElevatedButton(
                         onPressed: () {},
                         child: const Text("Option3"),
                       ),
-                       ElevatedButton(
+                      SizedBox(
+                        // width: 200,  
+                        height: 10,
+                      ),
+                      ElevatedButton(
                         onPressed: () {},
-                        child: const Text("Option4"),
+                        child: const Text("Option4",textAlign: TextAlign.center,),
+                      ),
+                      SizedBox(
+                        // width: 200,
+                        height: 10,
                       ),
                     ],
                   ),
                 ],
               ),
             ],
-          ),  ElevatedButton(
-                        onPressed: () {},
-                        child: const Text("Next Quetion"),
-                      ),
-
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: const Text("Next Quetion"),
+          ),
         ],
       ),
     );
