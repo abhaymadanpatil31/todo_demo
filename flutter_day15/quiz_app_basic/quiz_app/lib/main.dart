@@ -244,8 +244,18 @@ class _QuizAppState extends State {
       "answerIndex": 1,
     },
   ];
+  MaterialStateProperty<Color?>? buttonColor() {
+    if (selectedIndex != -1) {
+      return const MaterialStatePropertyAll(Colors.green);
+    } else {
+      return const MaterialStatePropertyAll(Colors.red);
+    }
+  }
+
   bool quetionscreen = true;
   int quetionIndex = 0;
+  int selectedIndex = -1;
+
   Scaffold isquetionscreen() {
     if (quetionscreen == true) {
       return Scaffold(
@@ -277,7 +287,7 @@ class _QuizAppState extends State {
                   ),
                 ),
                 Text(
-                  "${quetionIndex + 1}/${allquetions.length}",
+                  "${quetionIndex + 1}/${allquetions.length}", //this line displays 1/5 text on the screen
                   style: const TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.w600,
@@ -302,25 +312,34 @@ class _QuizAppState extends State {
             const SizedBox(
               height: 30,
             ),
-            Container(
-              width: 20,
-              height: 30,
-              child: ElevatedButton(
-                onPressed: () {},
-                child: Text(
-                  "A.${allquetions[quetionIndex]["options"][0]}",
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.normal,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
+            // Container(
+            //   width: 20,
+            //   height: 30,
+            //   child: ElevatedButton(
+            //     onPressed: () {},
+            //     child: Text(
+            //       "A.${allquetions[quetionIndex]["options"][0]}",
+            //       style: const TextStyle(
+            //         fontSize: 20,
+            //         fontWeight: FontWeight.normal,
+            //       ),
+            //     ),
+            //   ),
+            // ),
+            // const SizedBox(
+            //   height: 20,
+            // ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  if (selectedIndex != -1) {
+                    selectedIndex = 1;
+                    ButtonStyle(
+                      backgroundColor: buttonColor(),
+                    );
+                  }
+                });
+              },
               child: Text(
                 "A.${allquetions[quetionIndex]["options"][0]}",
                 style: const TextStyle(
@@ -339,7 +358,6 @@ class _QuizAppState extends State {
                 style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.normal,
-              
                 ),
               ),
             ),
