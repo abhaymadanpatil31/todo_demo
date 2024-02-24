@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import "package:G"
 class Assignment3 extends StatelessWidget {
   const Assignment3({super.key});
 
@@ -8,7 +8,9 @@ class Assignment3 extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
-        title: const Text("Assignment 3"),
+        title: const Text("Assignment 3",
+        style:Google.
+        ),
       ),
       body: SizedBox(
         height: double.infinity,

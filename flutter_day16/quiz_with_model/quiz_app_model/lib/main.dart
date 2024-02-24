@@ -8,8 +8,36 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: QuizApp(),
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.amber,
+          foregroundColor: Colors.orange,
+        ),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.yellow,
+          background: Colors.purple[200],
+          primary: Colors.red,
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.white,
+            
+            foregroundColor: Colors.white,
+            fixedSize: const Size(1000, 1000),
+          ),
+        ),
+        textTheme: const TextTheme(
+          displayLarge: TextStyle(
+            color: Colors.red,
+            fontSize: 50,
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.w900,
+          ),
+        ),
+        useMaterial3: true,
+      ),
     );
   }
 }
@@ -32,24 +60,24 @@ class MCAppData {
 class _QuizAppState extends State {
   List allQuestions = [
     const MCAppData(
-      question: "Who has honored with Bharat Ratna Award in 2024?",
+      question: "In which Dart is introduced?",
       options: [
-        "Amitabh Bacchan",
-        "Manmohan Singh",
-        "Swaminathan",
-        "APJ Abdul Kalam"
-      ],
-      answerIndex: 2,
-    ),
-    const MCAppData(
-      question: "In Java What is Super keyword?",
-      options: [
-        "type Casted this",
-        "Constructor",
-        "Bridge between Parent and Child",
-        "non static variable"
+        "2011",
+        "2015",
+        "2019",
+        "2017"
       ],
       answerIndex: 0,
+    ),
+    const MCAppData(
+      question: "PVM written in which Language?",
+      options: [
+        "Java",
+        "C",
+        "CPP",
+        "PHP"
+      ],
+      answerIndex: 1,
     ),
     const MCAppData(
       question:
@@ -74,14 +102,14 @@ class _QuizAppState extends State {
   int selectedIndex = -1;
   int score = 0;
 
-  MaterialStateProperty<Color?> checkAnswer(int option) {
+  MaterialStateProperty<Color?> checkAnswer(int buttonIndex) {
     if (selectedIndex != -1) {
-      if (option == allQuestions[questionIndex].answerIndex) {
-        if (option == selectedIndex) {
+      if (buttonIndex == allQuestions[questionIndex].answerIndex) {
+        if (buttonIndex == selectedIndex) {
           score++;
         }
         return const MaterialStatePropertyAll(Colors.green);
-      } else if (option == selectedIndex) {
+      } else if (buttonIndex == selectedIndex) {
         return const MaterialStatePropertyAll(Colors.red);
       } else {
         return const MaterialStatePropertyAll(Colors.white);
@@ -282,7 +310,7 @@ class _QuizAppState extends State {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.deepPurple,
           onPressed: () {
             pageNavigation();
           },
