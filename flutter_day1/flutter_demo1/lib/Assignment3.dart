@@ -1,72 +1,45 @@
-import 'package:flutter/material.dart';
-import "package:G"
-class Assignment3 extends StatelessWidget {
+import "package:flutter/material.dart";
+import "package:google_fonts/google_fonts.dart";
+
+class Assignment3 extends StatefulWidget {
   const Assignment3({super.key});
 
+  @override
+  State createState() {
+    return _Assignment3();
+  }
+}
+
+class _Assignment3 extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: const Text("Assignment 3",
-        style:Google.
+        title: Text(
+          "Toggle Colors",
+          style: GoogleFonts.quicksand(),
         ),
       ),
-      body: SizedBox(
-        height: double.infinity,
+      body: Container(
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          // crossAxisAlignment: CrossAxisAlignment.center,
+          // mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.orange,
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: const Text("Button 1 "),
-                )
-              ],
+            Container(
+              color: Colors.red,
+              height: 70,
+              width: 70,
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.blue,
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: const Text("Button 2"),
-                )
-              ],
+            Container(
+              color: Colors.green,
+              height: 70,
+              width: 70,
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.amber,
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: const Text("Button 3"),
-                )
-              ],
+            Container(
+              color: Colors.blue,
+              height: 70,
+              width: 70,
             ),
           ],
         ),
