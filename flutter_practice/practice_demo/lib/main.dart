@@ -170,14 +170,16 @@ class _Demo extends State {
       ),
       body: Container(
         height: null,
-        width: null,
+        width: 50,
+        color: Colors.red,
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          // mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              height: 50,
-              width: 50,
-              color: Colors.amber,
+              height: null,
+              width: null,
+              // color: Colors.amber,
             ),
           ],
         ),
