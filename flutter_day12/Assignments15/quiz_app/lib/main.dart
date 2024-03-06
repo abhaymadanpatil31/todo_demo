@@ -44,7 +44,7 @@ class _QuizApp extends State<QuizApp> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const Text("Quetion1/10"),
-              SizedBox(
+              const SizedBox(
                 // width: 200,
                 height: 10,
               ),
