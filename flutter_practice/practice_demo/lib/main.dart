@@ -1,189 +1,189 @@
-// // import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
-// // void main() {
-// //   runApp(const MyApp());
-// // }
+void main() {
+  runApp(MaterialApp(
+    home: Scaffold(
+      appBar: AppBar(
+        title: Text('CardDemo'),
+      ),
+      body: MyApp(),
+    ),
+  ));
+}
 
-// // class MyApp extends StatelessWidget {
-// //   const MyApp({super.key});
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      physics: ClampingScrollPhysics(), // Prevents bouncing and stops at the end of content
+      itemCount: list.length,
+      itemBuilder: (context, index) {
+        return CardDemo(userData: list[index]);
+      },
+    );
+  }
+}
 
-// //   // This widget is the root of your application.
-// //   @override
-// //   Widget build(BuildContext context) {
-// //     return MaterialApp(
-// //       title: 'Flutter Demo',
-// //       theme: ThemeData(
-// //         // This is the theme of your application.
-// //         //
-// //         // TRY THIS: Try running your application with "flutter run". You'll see
-// //         // the application has a purple toolbar. Then, without quitting the app,
-// //         // try changing the seedColor in the colorScheme below to Colors.green
-// //         // and then invoke "hot reload" (save your changes or press the "hot
-// //         // reload" button in a Flutter-supported IDE, or press "r" if you used
-// //         // the command line to start the app).
-// //         //
-// //         // Notice that the counter didn't reset back to zero; the application
-// //         // state is not lost during the reload. To reset the state, use hot
-// //         // restart instead.
-// //         //
-// //         // This works for code too, not just values: Most code changes can be
-// //         // tested with just a hot reload.
-// //         colorScheme: ColorScheme.fromSeed(seedColor: Colors.pink),
-// //         useMaterial3: true,
-// //       ),
-// //       home: const MyHomePage(title: 'Flutter Demo Home Page'),
-// //     );
-// //   }
-// // }
 
-// // class MyHomePage extends StatefulWidget {
-// //   const MyHomePage({super.key, required this.title});
+List<Map<String, dynamic>> list = [
+  {
+    "id": 2,
+    "name": "Alex",
+    "picture": "https://image.ibb.co/cA2oOb/alex_1.jpg",
+    "latest_timestamp": "10:00 AM",
+    "lastChat":
+        "Or maybe not, let me check logistics and call you. Give me sometime"
+  },
+  {
+    "id": 3,
+    "name": "Bob",
+    "picture": "https://image.ibb.co/gSyTOb/bob_1.jpg",
+    "latest_timestamp": "12:30 AM",
+    "lastChat": "Alright"
+    },
+  {
+    "id": 3,
+    "name": "Bob",
+    "picture": "https://image.ibb.co/gSyTOb/bob_1.jpg",
+    "latest_timestamp": "12:30 AM",
+    "lastChat": "Alright"
+  },
+  {
+    "id": 4,
+    "name": "Luke",
+    "picture": "https://image.ibb.co/jOzeUG/luke_1.jpg",
+    "latest_timestamp": "4:12 PM",
+    "lastChat": "I will look into it"
+  },
+  {
+    "id": 5,
+    "name": "Bane",
+    "picture": "https://image.ibb.co/cBZPww/bane_1.jpg",
+    "latest_timestamp": "7:53 PM",
+    "lastChat": "Exactly my point!"
+  },
+  {
+    "id": 6,
+    "name": "Darth Vader",
+    "picture": "https://image.ibb.co/j4Ov3b/darth_vader_1.png",
+    "latest_timestamp": "1:09 PM",
+    "lastChat": "Not quite the same."
+  },
+  {
+    "id": 7,
+    "name": "Zach",
+    "picture": "https://image.ibb.co/b4kxGw/zach_1.jpg",
+    "latest_timestamp": "Yesterday",
+    "lastChat": "I thought that the event was over long ago"
+  },
+  {
+    "id": 8,
+    "name": "Katie",
+    "picture": "https://image.ibb.co/eLVWbw/katie_1.jpg",
+    "latest_timestamp": "Yesterday",
+    "lastChat": "nothing"
+  },
+  {
+    "id": 9,
+    "name": "Chloe",
+    "picture": "https://image.ibb.co/ncAa3b/chloe_1.jpg",
+    "latest_timestamp": "Wednesday",
+    "lastChat": "sure i'll take it from you"
+  },
+  {
+    "id": 10,
+    "name": "Kennith",
+    "picture": "https://image.ibb.co/fQKPww/kennith_1.jpg",
+    "latest_timestamp": "Wednesday",
+    "lastChat": "Take care, bye"
+  },
+  {
+    "id": 11,
+    "name": "Tara",
+    "picture": "https://image.ibb.co/dM6hib/tara_1.jpg",
+    "latest_timestamp": "Monday",
+    "lastChat": "Not today"
+  },
+  {
+    "id": 12,
+    "name": "Gary",
+    "picture": "https://image.ibb.co/gsF8Ob/gary_1.jpg",
+    "latest_timestamp": "Sunday",
+    "lastChat": "Whatever works for you!"
+  },
+  {
+    "id": 13,
+    "name": "Zoey",
+    "picture": "https://image.ibb.co/nd0Wbw/zoey_1.jpg",
+    "latest_timestamp": "8/12/2017",
+    "lastChat": "Will get in touch"
+  },
+  {
+    "id": 14,
+    "name": "Ash",
+    "picture": "https://image.ibb.co/iasYpG/ash_1.jpg",
+    "latest_timestamp": "6/12/2017",
+    "lastChat": "Ok"
+  },
+  {
+    "id": 15,
+    "name": "Zen",
+    "picture": "https://image.ibb.co/eeqWbw/zen_1.jpg",
+    "latest_timestamp": "19/11/2017",
+    "lastChat": "Lol"
+  }
+  // Other data...
+];
 
-// //   // This widget is the home page of your application. It is stateful, meaning
-// //   // that it has a State object (defined below) that contains fields that affect
-// //   // how it looks.
+class CardDemo extends StatelessWidget {
+  const CardDemo({Key? key, required this.userData}) : super(key: key);
 
-// //   // This class is the configuration for the state. It holds the values (in this
-// //   // case the title) provided by the parent (in this case the App widget) and
-// //   // used by the build method of the State. Fields in a Widget subclass are
-// //   // always marked "final".
+  final Map<String, dynamic> userData;
 
-// //   final String title;
-
-// //   @override
-// //   State<MyHomePage> createState() => _MyHomePageState();
-// // }
-
-// // class _MyHomePageState extends State<MyHomePage> {
-// //   int _counter = 0;
-
-// //   void _incrementCounter() {
-// //     setState(() {
-// //       // This call to setState tells the Flutter framework that something has
-// //       // changed in this State, which causes it to rerun the build method below
-// //       // so that the display can reflect the updated values. If we changed
-// //       // _counter without calling setState(), then the build method would not be
-// //       // called again, and so nothing would appear to happen.
-// //       _counter++;
-// //     });
-// //   }
-
-// //   @override
-// //   Widget build(BuildContext context) {
-// //     // This method is rerun every time setState is called, for instance as done
-// //     // by the _incrementCounter method above.
-// //     //
-// //     // The Flutter framework has been optimized to make rerunning build methods
-// //     // fast, so that you can just rebuild anything that needs updating rather
-// //     // than having to individually change instances of widgets.
-// //     return Scaffold(
-// //       appBar: AppBar(
-// //         // TRY THIS: Try changing the color here to a specific color (to
-// //         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-// //         // change color while the other colors stay the same.
-// //         backgroundColor: Theme.of(context).colorScheme.background,
-// //         //if it is background then color changes to white or whatever bg may be.
-// //         //if it is error then color is red.
-// //         //if it is onBackground then its color is dark grey.
-// //         //if it is onError then color of appBar is white,same as bg
-// //         //if it is onPrimary then color will be same as bg.
-// //         //if it is onSecondary then color will be same as bg.
-// //         //if it is onSurface then color will be same as black.
-// //         //if it is primary then color will be same as purple.
-// //         //if it is secondary then color will be light grey.
-// //         //if it is surface then color will be same as bg.
-// //         //brightness variable is not avaible.
-// //         // Here we take the value from the MyHomePage object that was created by
-// //         // the App.build method, and use it to set our appbar title.
-// //         title: Text(widget.title),
-// //       ),
-// //       body: Center(
-// //         // Center is a layout widget. It takes a single child and positions it
-// //         // in the middle of the parent.
-// //         child: Column(
-// //           // Column is also a layout widget. It takes a list of children and
-// //           // arranges them vertically. By default, it sizes itself to fit its
-// //           // children horizontally, and tries to be as tall as its parent.
-// //           //
-// //           // Column has various properties to control how it sizes itself and
-// //           // how it positions its children. Here we use mainAxisAlignment to
-// //           // center the children vertically; the main axis here is the vertical
-// //           // axis because Columns are vertical (the cross axis would be
-// //           // horizontal).
-// //           //
-// //           // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-// //           // action in the IDE, or press "p" in the console), to see the
-// //           // wireframe for each widget.
-// //           mainAxisAlignment: MainAxisAlignment.center,
-// //           children: <Widget>[
-// //             const Text(
-// //               'You have pushed the button this many times:',
-// //             ),
-// //             Text(
-// //               '$_counter',
-// //               style: Theme.of(context).textTheme.headlineMedium,
-// //             ),
-// //           ],
-// //         ),
-// //       ),
-// //       floatingActionButton: FloatingActionButton(
-// //         onPressed: _incrementCounter,
-// //         tooltip: 'Increment',
-// //         child: const Icon(Icons.add),
-// //       ), // This trailing comma makes auto-formatting nicer for build methods.
-// //     );
-// //   }
-// // }
-
-// import "package:flutter/material.dart";
-// import "package:google_fonts/google_fonts.dart";
-
-// void main() {
-//   runApp(MyApp());
-// }
-
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       home: Demo(),
-//     );
-//   }
-// }
-
-// class Demo extends StatefulWidget {
-//   @override
-//   State createState() {
-//     return _Demo();
-//   }
-// }
-
-// class _Demo extends State {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text(
-//           "Testing",
-//           style: GoogleFonts.abel(),
-//         ),
-//       ),
-//       body: Container(
-//         height: null,
-//         width: 50,
-//         color: Colors.red,
-//         child: Row(
-//           // mainAxisAlignment: MainAxisAlignment.end,
-//           crossAxisAlignment: CrossAxisAlignment.center,
-//           children: [
-//             Container(
-//               height: null,
-//               width: null,
-//               // color: Colors.amber,
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(10),
+      child: Row(
+        children: [
+          CircleAvatar(
+            foregroundImage: NetworkImage(userData['picture']),
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  userData['name'],
+                  style: TextStyle(
+                    fontSize: 18, // Adjust font size as needed
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Row(
+                  children: [
+                    const Icon(
+                      Icons.done_all_rounded,
+                      color: Colors.green,
+                    ),
+                    const SizedBox(width: 5),
+                    Expanded(
+                      child: Text(
+                        userData['lastChat'],
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
